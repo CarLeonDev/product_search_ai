@@ -2,6 +2,14 @@
 
 An intelligent product search application that uses AI to recommend products based on user needs. The application provides a modern, responsive interface with real-time product recommendations.
 
+<a href="https://github.com/user-attachments/assets/9707a203-3eb5-4aae-827a-c1448f652589">
+  <img src="https://github.com/user-attachments/assets/9707a203-3eb5-4aae-827a-c1448f652589" width="500" height="245" />
+</a>
+
+<a href="https://github.com/user-attachments/assets/15462015-7e67-4ef8-8fc9-88d1617c5888">
+  <img src="https://github.com/user-attachments/assets/15462015-7e67-4ef8-8fc9-88d1617c5888" width="500" height="245" />
+</a>
+
 ## Tech Stack
 
 - **Framework**: [Next.js 15](https://nextjs.org/) with App Router
