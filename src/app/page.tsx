@@ -11,6 +11,7 @@ import { useState } from 'react';
 
 export default function Home() {
   const [isSearched, setIsSearched] = useState(false);
+  const [query, setQuery] = useState('');
   const { object, submit, stop, isLoading, error } = useObject<ProductsResponse>({
     api: '/api/products',
     schema: ProductsResponseSchema,
@@ -18,8 +19,11 @@ export default function Home() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const query = e.currentTarget.querySelector('input')?.value;
-    submit({ query: query ?? '', length: 5 });
+
+    const query = e.currentTarget.querySelector('input')?.value ?? '';
+
+    submit({ query, length: 5 });
+    setQuery(query);
     setIsSearched(true);
   };
 
@@ -28,9 +32,14 @@ export default function Home() {
       <Header />
       <SearchForm isLoading={isLoading} onSubmit={handleSubmit} onStop={stop} />
 
-      {isLoading && <StatusAlert type="loading" />}
-      {error && <StatusAlert type="error" error={error} onRetry={() => submit({ query: '', length: 5 })} />}
-      {!error && !isLoading && isSearched && (!object || object?.data?.length === 0) && <StatusAlert type="empty" />}
+      {isSearched && (
+        <StatusAlert
+          isLoading={isLoading}
+          isEmpty={!object?.data?.length}
+          error={error}
+          onRetry={() => submit({ query, length: 5 })}
+        />
+      )}
 
       {object?.data && <ProductGrid products={object.data} />}
     </div>
