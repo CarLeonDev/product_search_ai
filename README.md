@@ -30,6 +30,7 @@ src/
 │   └── ui/             # Base UI components
 ├── constants/          # Constants and configuration
 │   └── env.ts          # Environment variables
+├── hoc/                # Higher-order components
 ├── lib/                # Utility functions
 │   ├── ai.ts           # AI model configuration
 │   └── utils.ts        # Helper functions
@@ -45,6 +46,7 @@ The application follows a modern, component-based architecture:
 1. **Presentation Layer**
   - Layout and page for home
   - UI and custom components
+  - Higher-order components
   - Responsive design using TailwindCSS
 
 2. **Business Logic Layer**
