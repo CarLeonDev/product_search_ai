@@ -1,42 +1,39 @@
 'use client';
 
-import { ProductsResponseSchema } from '@/schemas/products-schema';
+import { Header } from '@/components/header';
+import { ProductGrid } from '@/components/product-grid';
+import { SearchForm } from '@/components/search-form';
+import { StatusAlert } from '@/components/status-alert';
+import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
+import { ProductsResponse, ProductsResponseSchema } from '@/schemas/products-schema';
 import { experimental_useObject as useObject } from '@ai-sdk/react';
+import { useState } from 'react';
 
 export default function Home() {
-  const { object, submit, stop, isLoading } = useObject({
+  const [isSearched, setIsSearched] = useState(false);
+  const { object, submit, stop, isLoading, error } = useObject<ProductsResponse>({
     api: '/api/products',
     schema: ProductsResponseSchema,
   });
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const query = e.currentTarget.querySelector('input')?.value;
+    submit({ query: query ?? '', length: 5 });
+    setIsSearched(true);
+  };
+
   return (
-    <div>
-      <button
-        onClick={() => submit({ query: "Want a phone for playing games", length: 5 })}
-        disabled={isLoading}
-      >
-        Generate products
-      </button>
+    <div className={cn("flex flex-col items-center p-4 gap-8 w-full max-w-2xl mx-auto", { "justify-center h-screen": !isSearched })}>
+      <Header />
+      <SearchForm isLoading={isLoading} onSubmit={handleSubmit} onStop={stop} />
 
-      {isLoading && (
-        <div>
-          <div>Loading...</div>
-          <button type="button" onClick={() => stop()}>
-            Stop
-          </button>
-        </div>
-      )}
+      {isLoading && <StatusAlert type="loading" />}
+      {error && <StatusAlert type="error" error={error} onRetry={() => submit({ query: '', length: 5 })} />}
+      {!error && !isLoading && isSearched && (!object || object?.data?.length === 0) && <StatusAlert type="empty" />}
 
-      <div className="flex flex-col gap-4">
-        {object?.data?.map((product, index) => (
-          <div key={index}>
-            <p>{product?.name}</p>
-            <p>{product?.description}</p>
-            <p>{product?.reason}</p>
-            <p>{product?.characteristics?.map((characteristic) => characteristic?.emoji).join(' ')}</p>
-          </div>
-        ))}
-      </div>
+      {object?.data && <ProductGrid products={object.data} />}
     </div>
   );
 }

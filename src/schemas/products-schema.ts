@@ -14,9 +14,9 @@ export const ProductSchema = z.object({
   image: z.string().describe('URL of the image.'),
   shopping_url: z.string().describe('URL to shop.'),
   characteristics: z.array(z.object({
-    emoji: z.string(),
-    name: z.string(),
-    value: z.string(),
+    emoji: z.string().describe('Emoji to represent the characteristic.'),
+    key: z.string().describe('Key of the characteristic. It must be a word.'),
+    value: z.string().describe('Value of the characteristic.'),
   })).describe('All the characteristics of the product.'),
   reason: z.string().max(100).describe('Brief justification tied to the user\'s needs.'),
 });
