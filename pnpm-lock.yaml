@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@ai-sdk/openai': 1.3.10
+  '@ai-sdk/react': 1.2.8
   '@eslint/eslintrc': 3.3.1
   '@radix-ui/react-slot': 1.2.0
   '@tailwindcss/postcss': 4.1.3
@@ -33,6 +34,7 @@ specifiers:
 
 dependencies:
   '@ai-sdk/openai': 1.3.10_zod@3.24.2
+  '@ai-sdk/react': 1.2.8_react@19.1.0+zod@3.24.2
   '@radix-ui/react-slot': 1.2.0_ys7c5ke7xl3xzsojot4lic4rti
   ai: 4.3.5_react@19.1.0+zod@3.24.2
   class-variance-authority: 0.7.1
