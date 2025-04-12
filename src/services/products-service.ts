@@ -17,7 +17,7 @@ export const getProducts = (prompt: string, length: number = 5) => {
   const system = `
 You are a helpful assistant that recommends products based on the user's needs.
 Rules:
-- Respond in the same language as the user's needs.
+- Must respond in the same language as the user's needs.
 - The products must be related to the user's needs.
 - If the user's needs are not related to products, you should return an empty array.
 - Must return between ${length} and ${Math.min(length * 2, 10)} products.

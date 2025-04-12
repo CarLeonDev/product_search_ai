@@ -1,4 +1,3 @@
-const image = 'https://via.placeholder.com/150';
 const characteristics = [
   { emoji: '🌟', key: 'Feature 1', value: 'Value 1' },
   { emoji: '💡', key: 'Feature 2', value: 'Value 2' },
@@ -11,7 +10,6 @@ export const productFullMock = {
   id: 'product-full',
   name: 'Product 1',
   description: 'Description 1',
-  image,
   characteristics,
   reason: 'Reason 1',
 };
@@ -20,7 +18,6 @@ export const productWithoutReasonMock = {
   id: 'product-without-reason',
   name: 'Product 1',
   description: 'Description 1',
-  image,
   characteristics,
 };
 

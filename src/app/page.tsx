@@ -24,7 +24,7 @@ export default function Home() {
   };
 
   return (
-    <div className={cn("flex flex-col items-center p-4 gap-8 w-full max-w-2xl mx-auto", { "justify-center h-screen": !isSearched })}>
+    <div className={cn("flex flex-col items-center p-4 gap-8", { "justify-center flex-1": !isSearched })}>
       <Header />
       <SearchForm isLoading={isLoading} onSubmit={handleSubmit} onStop={stop} />
 

@@ -28,9 +28,17 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
-        {children}
+        <section className="flex-1 flex flex-col gap-8 w-full max-w-2xl mx-auto">
+          {children}
+        </section>
+
+        <footer className="text-sm text-center border-t border-border py-4">
+          <p>
+            Made with ❤️ by <a href="https://github.com/CarLeonDev" target="_blank" rel="noopener noreferrer">CarLeonDev</a>
+          </p>
+        </footer>
       </body>
     </html>
   );

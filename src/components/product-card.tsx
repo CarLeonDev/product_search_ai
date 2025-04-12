@@ -12,20 +12,20 @@ export function ProductCard({ product }: ProductCardProps) {
   return (
     <Card
       data-testid={`product-card`}
-      className="flex-1 overflow-hidden py-0 gap-0 rounded-lg border shadow-sm min-w-52 max-w-xs sm:max-w-72 cursor-default hover:scale-105 transition-all duration-300"
+      className="flex-1 mx-auto overflow-hidden py-0 gap-0 rounded-lg border shadow-sm min-w-52 max-w-xs sm:max-w-72 cursor-default hover:scale-105 transition-all duration-300"
     >
       <CardHeader className="relative px-0 gap-0">
         {product?.reason && (
-          <div data-testid="product-card-reason" className="flex items-center gap-2 px-2 py-2 bg-black/50 text-white text-left" title={product?.reason}>
-            <Sparkles width={16} height={16} />
-            <p className="flex-1 text-xs line-clamp-1">{product?.reason}</p>
+          <div data-testid="product-card-reason" className="absolute top-0 left-0 gap-2 px-2 py-2 bg-black/50 hover:bg-black text-white text-left group">
+            <Sparkles className="float-left mr-2" width={16} height={16} />
+            <p className="flex-1 text-xs line-clamp-1 group-hover:line-clamp-none">{product?.reason}</p>
           </div>
         )}
         <img
           data-testid="product-card-image"
-          className="w-full h-full object-cover aspect-video"
+          className="w-full h-full object-cover aspect-square"
           alt={product?.name}
-          src={product?.image}
+          src={encodeURI(`https://th.bing.com/th?q=${product?.name}`)}
           onError={(e) => {
             e.currentTarget.src = IMAGE_PLACEHOLDER;
           }}
