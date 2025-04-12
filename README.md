@@ -15,9 +15,7 @@ An intelligent product search application that uses AI to recommend products bas
 - **Framework**: [Next.js 15](https://nextjs.org/) with App Router
 - **Language**: TypeScript
 - **UI Components**: Custom components with Tailwind CSS
-- **AI Integration**: 
-  - [@ai-sdk/react](https://www.npmjs.com/package/@ai-sdk/react) for AI interactions
-  - OpenAI-compatible API support (Groq, DeepSeek, etc.)
+- **AI Integration**: OpenAI-compatible API support (Groq, DeepSeek, etc.)
 - **State Management**: React Hooks
 - **Form Handling**: React Forms
 - **Styling**: 
