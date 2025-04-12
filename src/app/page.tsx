@@ -4,7 +4,6 @@ import { Header } from '@/components/header';
 import { ProductGrid } from '@/components/product-grid';
 import { SearchForm } from '@/components/search-form';
 import { StatusAlert } from '@/components/status-alert';
-import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import { ProductsResponse, ProductsResponseSchema } from '@/schemas/products-schema';
 import { experimental_useObject as useObject } from '@ai-sdk/react';

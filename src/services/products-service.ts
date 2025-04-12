@@ -24,6 +24,7 @@ Rules:
 - Do not repeat information between the products.
 - Omit the words that are not related to the products.
 - All the fields are required.
+- Return id in UUID format.
 - The name of the product must include the brand and model.
 - The description of the product must be highlighting the features, benefits, and unique selling points.
 - The description represents marketing material of the product.
@@ -52,12 +53,6 @@ Rules:
       },
     },
     onFinish: ({ object }) => {
-      // if (!object) {
-      //   throw new Error("No object returned from the API");
-      // }
-
-      console.log({object});
-
       const res = ProductsResponseSchema.safeParse(object);
 
       if (res.error) {
