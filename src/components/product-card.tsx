@@ -21,15 +21,15 @@ export function ProductCard({ product }: ProductCardProps) {
             <p className="flex-1 text-xs line-clamp-1 group-hover:line-clamp-none">{product?.reason}</p>
           </div>
         )}
+        {/* eslint-disable @next/next/no-img-element */}
         <img
           data-testid="product-card-image"
+          alt={product?.name ?? ''}
           className="w-full h-full object-cover aspect-square"
-          alt={product?.name}
           src={encodeURI(`https://th.bing.com/th?q=${product?.name}`)}
           onError={(e) => {
             e.currentTarget.src = IMAGE_PLACEHOLDER;
-          }}
-        />
+          }} />
       </CardHeader>
 
       <CardContent className="flex-1 flex flex-col gap-1 px-4 py-2">

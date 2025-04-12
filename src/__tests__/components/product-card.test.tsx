@@ -12,8 +12,13 @@ const shouldShowRequiredFields = (product: DeepPartial<Product>) => {
   expect(screen.getByTestId('product-card-description')).toBeInTheDocument();
   expect(screen.getByTestId('product-card-characteristics')).toBeInTheDocument();
 
-  product.name && expect(screen.getByTestId('product-card-name')).toHaveTextContent(product.name);
-  product.description && expect(screen.getByTestId('product-card-description')).toHaveTextContent(product.description);
+  if (product.name) {
+    expect(screen.getByTestId('product-card-name')).toHaveTextContent(product.name);
+  }
+
+  if (product.description) {
+    expect(screen.getByTestId('product-card-description')).toHaveTextContent(product.description);
+  }
 };
 
 describe('ProductCard', () => {
