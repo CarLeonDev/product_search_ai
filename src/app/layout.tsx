@@ -12,9 +12,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const dynamic = 'force-dynamic'
-export const maxDuration = 300;
-
 export const metadata: Metadata = {
   title: "AI-Powered Product Search",
   description: "Your assistant for finding the best products for your needs.",
