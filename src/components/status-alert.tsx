@@ -7,14 +7,19 @@ export interface StatusAlertProps {
   onRetry?: () => void;
 }
 
-export function StatusAlert({ isLoading, isEmpty, error, onRetry }: StatusAlertProps) {
+export function StatusAlert({
+  isLoading,
+  isEmpty,
+  error,
+  onRetry,
+}: StatusAlertProps) {
   const getAlertType = () => {
-    if (isLoading) return AlertType.LOADING;
+    if (isEmpty && isLoading) return AlertType.LOADING;
     if (error) return AlertType.ERROR;
     if (isEmpty) return AlertType.EMPTY;
 
     return null;
-  }
+  };
 
   const alertType = getAlertType();
 
@@ -23,4 +28,4 @@ export function StatusAlert({ isLoading, isEmpty, error, onRetry }: StatusAlertP
   const AlertComponent = withAlert(alertType);
 
   return <AlertComponent error={error} onRetry={onRetry} />;
-} 
+}
